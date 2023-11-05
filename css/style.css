@@ -5,11 +5,17 @@
     overflow: hidden;
 }
 body {
+    --mainColor: #fff;
+    --secondColor: #333;
+    --mainColorAlt: #ddd;
+    --secondColorAlt: #222;
     font-family: 'Montserrat', sans-serif;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
     max-height: 100vh;
+    background-color: var(--mainColor);
+    transition: .5s;
 }
 body::-webkit-scrollbar {
     display: none;
@@ -119,21 +125,23 @@ section#recents {
 h2 {
     grid-column: 1 / 4;
     text-align: center;
+    color: var(--secondColor);
 }
 hr {
     grid-column: 1 / 4;
-    background-color: #333;
+    background-color: var(--secondColor);
     height: 3px;
     width: 8em;
     margin: 1em auto 2em;
 }
 #recents .cards {
-    border: solid 1px #333;
+    border: solid 1px var(--secondColor);
     padding: 1em;
     text-align: center;
 }
 #recents .cards .description {
     margin-top: 1em;
+    color: var(--secondColor);
 }
 #recents .cards img {
     width: 10em;
@@ -150,7 +158,7 @@ section#all-collections {
     grid-template-columns: repeat(2, 1fr);
 }
 #all-collections .collections-container {
-    border: solid 1px #333;
+    border: solid 1px var(--secondColor);
     padding: 1em;
 }
 #all-collections .collections-container img {
@@ -165,6 +173,7 @@ section#about {
     padding: 4em 2em;
     text-align: center;
     position: relative;
+    color: var(--secondColor);
 }
 
 
@@ -178,4 +187,39 @@ footer {
     color: #fff;
     padding: 2.5em 0 0 1em ;
     text-align: center;
+}
+
+/* Dark Mode */
+button.btn-darkmode {
+    background-color: #ccc;
+    background-image: url(../img/moon.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 2em;
+    height: 3em;
+    width: 3em;
+    position: fixed;
+    bottom: 4em;
+    right: 2em;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .5s;
+}
+button.btn-darkmode:hover {
+    transform: scale(1.2);
+}
+
+/* Darkmode Active */
+.darkmode-active {
+    --mainColor: #333;
+    --secondColor: #ddd;
+}
+.btndarkmode-clicked {
+    background-image: url(../img/sun.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 2em;
+}
+.bg-darker-color {
+    background-color: var(--secondColorAlt);
 }
